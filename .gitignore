@@ -1,0 +1,22 @@
+ __pycache__/
+ *.pyc
+ *.pyo
+ *.pyd
+ .Python
+ *.egg-info/
+ *.egg
+ # Virtual environment
+ .venv/
+ venv/
+ env/
+ # PyCharm
+ .idea/
+ # Model files (optional, include if files are too large)
+ # *.pkl
+ # *.h5
+ # Dataset (optional, exclude if not needed in production)
+ ford.csv
+ # Other
+ *.log
+ *.cache
+ *.DS_Store

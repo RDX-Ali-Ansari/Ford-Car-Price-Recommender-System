@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ford Car Price Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Ford Car Price Predictor</h1>
+        <div class="form-card">
+            <form action="{{ url_for('predict') }}" method="POST">
+                <label for="model">Car Model</label>
+                <select name="model" id="model" required>
+                    <option value="" disabled selected>Select a model</option>
+                    {% for model in models %}
+                        <option value="{{ model }}">{{ model }}</option>
+                    {% endfor %}
+                </select>
+
+                <label for="year">Year</label>
+                <select name="year" id="year" required>
+                    <option value="" disabled selected>Select a year</option>
+                    {% for year in years %}
+                        <option value="{{ year }}">{{ year }}</option>
+                    {% endfor %}
+                </select>
+
+                <label for="transmission">Transmission</label>
+                <select name="transmission" id="transmission" required>
+                    <option value="" disabled selected>Select transmission</option>
+                    {% for transmission in transmissions %}
+                        <option value="{{ transmission }}">{{ transmission }}</option>
+                    {% endfor %}
+                </select>
+
+                <label for="fuelType">Fuel Type</label>
+                <select name="fuelType" id="fuelType" required>
+                    <option value="" disabled selected>Select fuel type</option>
+                    {% for fuel in fuel_types %}
+                        <option value="{{ fuel }}">{{ fuel }}</option>
+                    {% endfor %}
+                </select>
+
+                <label for="mileage">Mileage (miles)</label>
+                <input type="number" name="mileage" id="mileage" required min="0" step="1" placeholder="e.g., 20000">
+
+                <label for="tax">Tax (£)</label>
+                <input type="number" name="tax" id="tax" required min="0" step="1" placeholder="e.g., 150">
+
+                <label for="mpg">MPG</label>
+                <input type="number" name="mpg" id="mpg" required min="0" step="0.1" placeholder="e.g., 50.0">
+
+                <label for="engineSize">Engine Size (litres)</label>
+                <input type="number" name="engineSize" id="engineSize" required min="0" step="0.1" placeholder="e.g., 1.0">
+
+                <input type="submit" value="Predict Price">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

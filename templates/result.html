@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Prediction Results</h1>
+        <div class="result-card">
+            <h2>Predicted Prices (£)</h2>
+            <div class="prediction-item">
+                <span>Linear Regression</span>
+                <span>£{{ predictions['Linear Regression'] }}</span>
+            </div>
+            <div class="prediction-item">
+                <span>Decision Tree</span>
+                <span>£{{ predictions['Decision Tree'] }}</span>
+            </div>
+            <div class="prediction-item">
+                <span>Polynomial Regression</span>
+                <span>£{{ predictions['Polynomial Regression'] }}</span>
+            </div>
+            <div class="prediction-item">
+                <span>Neural Network</span>
+                <span>£{{ predictions['Neural Network'] }}</span>
+            </div>
+            <div class="input-data">
+                <h3>Your Input</h3>
+                <p><strong>Model:</strong> {{ input_data['model'][0] }}</p>
+                <p><strong>Year:</strong> {{ input_data['year'][0] }}</p>
+                <p><strong>Transmission:</strong> {{ input_data['transmission'][0] }}</p>
+                <p><strong>Fuel Type:</strong> {{ input_data['fuelType'][0] }}</p>
+                <p><strong>Mileage:</strong> {{ input_data['mileage'][0] }} miles</p>
+                <p><strong>Tax:</strong> £{{ input_data['tax'][0] }}</p>
+                <p><strong>MPG:</strong> {{ input_data['mpg'][0] }}</p>
+                <p><strong>Engine Size:</strong> {{ input_data['engineSize'][0] }} litres</p>
+            </div>
+            <a href="{{ url_for('index') }}" class="back-link">Make Another Prediction</a>
+        </div>
+    </div>
+</body>
+</html>
